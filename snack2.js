@@ -3,7 +3,7 @@
 🎯 Bonus: HOF con closure per memorizzare l'ultimo lancio
 Modifica la funzione in creaLanciaDado(), che restituisce una closure che memorizza l'ultimo risultato. Se il numero esce due volte di fila, stampa "Incredibile!". */
 
-function lanciaDado() {
+/* function lanciaDado() {
   return new Promise((resolve, reject) => {
     console.log("Sto lanciando il dado");
     setTimeout(() => {
@@ -20,11 +20,11 @@ function lanciaDado() {
 
 lanciaDado()
   .then((numero) => console.log("Numero ottenuto:", numero))
-  .catch((error) => console.error("Errore:", error));
+  .catch((error) => console.error("Errore:", error)); */
 
 ///////////////////////////////////////////////////////////////
 
-function creaLanciaDado() {
+/* function creaLanciaDado() {
   let ultimoNum = null;
   return function () {
     return new Promise((resolve, reject) => {
@@ -48,5 +48,31 @@ lanciDado2().then((numero) => console.log("Secondo dado", numero));
 lanciDado2().then((numero) => console.log("terzo dado", numero));
 lanciDado2().then((numero) => console.log("quarto dado", numero));
 lanciDado2().then((numero) => console.log("quinto dado", numero));
-lanciDado2().then((numero) => console.log("sesto dado", numero));
+lanciDado2().then((numero) => console.log("sesto dado", numero)); */
 // io boh meta l ha fatto papa gpt
+
+////////////////////////////////////////////////////////////////////////
+
+/* Esercizio: Countdown Asincrono
+
+Obiettivo: Crea una funzione countdown(n) che restituisce una Promise.
+Dettagli:
+La funzione deve contare da n fino a 0, ad intervalli di 1 secondo, stampando il valore ad ogni intervallo.
+Quando arriva a 0, la Promise si risolve con un messaggio di "Countdown completato!".
+Se il valore iniziale n non è un numero positivo, la Promise va in reject con un messaggio d’errore. */
+
+function countdown(num) {
+  return new Promise((resolve, reject) => {
+    let count = setInterval(() => {
+      console.log(num);
+      num--;
+      if (num < 0) {
+        clearInterval(count);
+        resolve("Sei felice ora? :))))");
+      }
+    }, 1000);
+    resolve;
+  });
+}
+
+countdown(3);
