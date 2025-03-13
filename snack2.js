@@ -63,6 +63,10 @@ Se il valore iniziale n non è un numero positivo, la Promise va in reject con u
 
 function countdown(num) {
   return new Promise((resolve, reject) => {
+    if (typeof num !== "number" || num < 0) {
+      reject("Inserisci un numero");
+      return;
+    }
     let count = setInterval(() => {
       console.log(num);
       num--;
@@ -75,4 +79,6 @@ function countdown(num) {
   });
 }
 
-countdown(3);
+countdown(5)
+  .then((res) => console.log(res))
+  .catch((error) => console.error(error));
