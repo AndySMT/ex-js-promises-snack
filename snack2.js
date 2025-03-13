@@ -21,3 +21,32 @@ function lanciaDado() {
 lanciaDado()
   .then((numero) => console.log("Numero ottenuto:", numero))
   .catch((error) => console.error("Errore:", error));
+
+///////////////////////////////////////////////////////////////
+
+function creaLanciaDado() {
+  let ultimoNum = null;
+  return function () {
+    return new Promise((resolve, reject) => {
+      const numero = Math.floor(Math.random() * 2) + 1;
+      console.log("Sto lanciando il secondo dado");
+      setTimeout(() => {
+        if (numero === ultimoNum) {
+          console.log("Incredibile");
+        } else {
+          ultimoNum = numero;
+          resolve(numero);
+        }
+      }, 3000);
+    });
+  };
+}
+
+const lanciDado2 = creaLanciaDado();
+
+lanciDado2().then((numero) => console.log("Secondo dado", numero));
+lanciDado2().then((numero) => console.log("terzo dado", numero));
+lanciDado2().then((numero) => console.log("quarto dado", numero));
+lanciDado2().then((numero) => console.log("quinto dado", numero));
+lanciDado2().then((numero) => console.log("sesto dado", numero));
+// io boh meta l ha fatto papa gpt
